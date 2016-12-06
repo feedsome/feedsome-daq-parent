@@ -1,0 +1,3 @@
+rootProject.name = 'feedsome-daq-parent'
+include 'feedsome-daq-test'
+

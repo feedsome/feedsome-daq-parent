@@ -1,0 +1,57 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+    }
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven'
+    apply plugin: 'maven-publish'
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+
+    group 'com.feedsome'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    //
+    // Dependencies
+    //
+    dependencies {
+
+        // Test dependencies
+        testCompile "junit:junit:4.12"
+        testCompile "org.mockito:mockito-core:1.10.19"
+    }
+
+}
+
+subprojects {
+    apply plugin: "spring-boot"
+
+    springBoot {
+        backupSource = false
+    }
+
+    bootRepackage {
+        enabled = false
+    }
+}
+
+//
+// Task declaration
+//
+
+task wrapper(type: Wrapper) {
+  distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+}
