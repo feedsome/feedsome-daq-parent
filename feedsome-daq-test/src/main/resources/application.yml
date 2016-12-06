@@ -1,0 +1,11 @@
+
+feedsome:
+  plugin:
+    registration:
+      name: "feedsome-daq-test"
+      categories: ["test", "super"]
+
+camel:
+  endpoint:
+    plugin:
+      sendRegistrationUri: "seda:registration:send"
