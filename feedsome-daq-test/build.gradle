@@ -4,14 +4,12 @@ dependencies {
     compile "com.feedsome:feedsome-model:1.0-SNAPSHOT"
 
 //  Spring boot dependencies
-
     compile "org.springframework.boot:spring-boot-starter"
     compile ("org.springframework.boot:spring-boot-starter-web") {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
     }
     compile "org.springframework.boot:spring-boot-starter-undertow"
     compile "org.springframework.boot:spring-boot-starter-actuator"
-
 
 //  Camel Dependencies
     compile "org.apache.camel:camel-spring-boot:2.18.1"
@@ -27,4 +25,7 @@ dependencies {
 
     compileOnly "org.projectlombok:lombok:1.16.12"
 
+//  Test dependencies
+
+    testCompile "org.springframework.boot:spring-boot-starter-test"
 }

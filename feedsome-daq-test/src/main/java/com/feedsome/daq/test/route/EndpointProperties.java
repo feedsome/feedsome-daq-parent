@@ -9,4 +9,6 @@ public class EndpointProperties {
 
     private String sendRegistrationUri;
 
+    private String sendFeedNotificationUri;
+
 }
