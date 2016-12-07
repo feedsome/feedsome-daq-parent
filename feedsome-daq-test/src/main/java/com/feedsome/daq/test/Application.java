@@ -1,5 +1,6 @@
 package com.feedsome.daq.test;
 
+import com.feedsome.daq.test.route.configuration.RouteConfiguration;
 import com.feedsome.daq.test.service.PluginRegistrationService;
 import com.feedsome.daq.test.service.ServiceConfiguration;
 import com.feedsome.model.PluginRegistration;
@@ -13,7 +14,8 @@ import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
 @Import({
-        ServiceConfiguration.class
+        ServiceConfiguration.class,
+        RouteConfiguration.class
 })
 @EnableConfigurationProperties(PluginProperties.class)
 public class Application implements CommandLineRunner {
