@@ -1,5 +1,7 @@
 package com.feedsome.daq.test.route.component;
 
+import com.feedsome.daq.test.component.FeedNotificationGenerator;
+import com.feedsome.daq.test.component.Generator;
 import com.feedsome.model.FeedNotification;
 import org.junit.Assert;
 import org.junit.Test;

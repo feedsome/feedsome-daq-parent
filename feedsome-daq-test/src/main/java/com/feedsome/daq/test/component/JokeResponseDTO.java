@@ -1,4 +1,4 @@
-package com.feedsome.daq.test.route.component;
+package com.feedsome.daq.test.component;
 
 import lombok.Data;
 

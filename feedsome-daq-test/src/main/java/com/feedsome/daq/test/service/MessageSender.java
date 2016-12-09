@@ -2,6 +2,8 @@ package com.feedsome.daq.test.service;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * Defines behaviour for components capable of sending marshaled messages
  * to a provided endpoint
@@ -15,5 +17,7 @@ public interface MessageSender {
      *                 to the target endpoint, where the message should be sent
      */
     void send(@NotEmpty String message, @NotEmpty String endpoint);
+
+    void send(@NotNull Object body, @NotEmpty String endpoint);
 
 }

@@ -1,4 +1,4 @@
-package com.feedsome.daq.test.route.component;
+package com.feedsome.daq.test.component;
 
 import com.feedsome.model.FeedNotification;
 import org.springframework.web.client.RestTemplate;

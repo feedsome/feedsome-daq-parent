@@ -1,11 +1,24 @@
 
 feedsome:
   plugin:
-    registration:
-      name: "feedsome-daq-test"
-      categories: ["test", "super"]
+    name: "feedsome-daq-test"
+    categories: ["test", "super"]
 
 camel:
   endpoint:
     plugin:
-      sendRegistrationUri: "seda:registration:send"
+      dataFeedProducerUri: "seda:feed:produce"
+      sendRegistrationUri: "rabbitmq:///feedsome.plugin.registration?connectionFactory=#customConnectionFactory"
+      sendFeedNotificationUri: "rabbitmq:///feedsome.plugin.feed?connectionFactory=#customConnectionFactory"
+
+  connection:
+    rabbitmq:
+      host: "localhost"
+      port: "5672"
+      username: "camel"
+      password: "password"
+
+
+feed:
+  generate:
+    interval: "1"

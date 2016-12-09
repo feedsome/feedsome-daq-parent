@@ -1,6 +1,6 @@
 package com.feedsome.daq.test;
 
-import com.feedsome.daq.test.route.configuration.RouteConfiguration;
+import com.feedsome.daq.test.route.RouteConfiguration;
 import com.feedsome.daq.test.service.PluginRegistrationService;
 import com.feedsome.daq.test.service.ServiceConfiguration;
 import com.feedsome.model.PluginRegistration;
@@ -17,7 +17,9 @@ import org.springframework.context.annotation.Import;
         ServiceConfiguration.class,
         RouteConfiguration.class
 })
-@EnableConfigurationProperties(PluginProperties.class)
+@EnableConfigurationProperties({
+        PluginProperties.class
+})
 public class Application implements CommandLineRunner {
 
     @Autowired
@@ -31,11 +33,9 @@ public class Application implements CommandLineRunner {
         final long milis = System.currentTimeMillis();
 
         final ConfigurableApplicationContext applicationContext = SpringApplication.run(Application.class, args);
-
         System.out.println("feedsome DAQ Test -- Started in " + (System.currentTimeMillis() - milis) + "(ms)");
 
-        // TODO: check how the above interacts with apache camel
-        applicationContext.close();
+        applicationContext.registerShutdownHook();
     }
 
     @Override

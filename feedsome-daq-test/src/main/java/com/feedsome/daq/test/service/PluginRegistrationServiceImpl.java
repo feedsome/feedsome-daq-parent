@@ -21,7 +21,6 @@ public class PluginRegistrationServiceImpl implements PluginRegistrationService 
     private final String sendRegistrationUri;
 
     private final ObjectMapper mapper;
-
     private final MessageSender messageSender;
 
     public PluginRegistrationServiceImpl(@NotEmpty final String sendRegistrationUri,
@@ -46,7 +45,7 @@ public class PluginRegistrationServiceImpl implements PluginRegistrationService 
             return;
         }
 
-        LOG.info("Sending plugin registration message...");
+        LOG.info("Sending registration message for plugin with info: " + registrationMessage);
         messageSender.send(registrationMessage, sendRegistrationUri);
 
         LOG.info("Registration message sent");
