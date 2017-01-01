@@ -1,0 +1,6 @@
+
+
+# time-unit: millis
+feed:
+  generate:
+    interval: "2000"

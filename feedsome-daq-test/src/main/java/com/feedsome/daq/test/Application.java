@@ -1,5 +1,7 @@
 package com.feedsome.daq.test;
 
+import com.feedsome.daq.test.component.ComponentConfiguration;
+import com.feedsome.daq.test.component.task.SchedulerConfiguration;
 import com.feedsome.daq.test.route.RouteConfiguration;
 import com.feedsome.daq.test.service.PluginRegistrationService;
 import com.feedsome.daq.test.service.ServiceConfiguration;
@@ -9,14 +11,18 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
 @Import({
         ServiceConfiguration.class,
-        RouteConfiguration.class
+        RouteConfiguration.class,
+        ComponentConfiguration.class,
+        SchedulerConfiguration.class
 })
+@EnableDiscoveryClient
 @EnableConfigurationProperties({
         PluginProperties.class
 })

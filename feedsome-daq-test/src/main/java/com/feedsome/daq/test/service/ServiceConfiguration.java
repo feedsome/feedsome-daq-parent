@@ -1,7 +1,6 @@
 package com.feedsome.daq.test.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.feedsome.daq.test.component.SchedulerConfiguration;
 import com.feedsome.daq.test.route.EndpointProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -11,8 +10,7 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @Import({
-        ValidationConfiguration.class,
-        SchedulerConfiguration.class
+        ValidationConfiguration.class
 })
 @EnableConfigurationProperties(EndpointProperties.class)
 public class ServiceConfiguration {

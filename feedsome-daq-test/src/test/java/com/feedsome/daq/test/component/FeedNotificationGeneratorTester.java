@@ -1,7 +1,5 @@
-package com.feedsome.daq.test.route.component;
+package com.feedsome.daq.test.component;
 
-import com.feedsome.daq.test.component.FeedNotificationGenerator;
-import com.feedsome.daq.test.component.Generator;
 import com.feedsome.model.FeedNotification;
 import org.junit.Assert;
 import org.junit.Test;
@@ -46,6 +44,7 @@ public class FeedNotificationGeneratorTester {
 
         Assert.assertNotNull(feedNotification);
         Assert.assertFalse(feedNotification.getTitle().isEmpty());
+        Assert.assertFalse(feedNotification.getBody().isEmpty());
     }
 
 
