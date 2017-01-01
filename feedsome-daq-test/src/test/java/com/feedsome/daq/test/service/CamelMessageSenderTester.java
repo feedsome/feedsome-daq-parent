@@ -3,8 +3,8 @@ package com.feedsome.daq.test.service;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.spring.boot.CamelAutoConfiguration;
+import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +41,8 @@ public class CamelMessageSenderTester {
     @Autowired
     private MessageSender messageSender;
 
-
-    @Before
-    public void setUp() throws Exception {
+    @After
+    public void tearDown() throws Exception {
         mockEndpoint.reset();
     }
 
