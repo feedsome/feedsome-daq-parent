@@ -11,12 +11,32 @@ feedsome:
     name: "feedsome-daq-test"
     categories: ["test", "super"]
 
+spring:
+  aop:
+    auto: true
+    proxy-target-class: true
+
+eureka:
+  healthcheck:
+    enabled: true
+  instance:
+    prefer-ip-address: true
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: "http://localhost:8080/eureka"
+
 camel:
   endpoint:
     plugin:
       dataFeedProducerUri: "seda:feed:produce"
-      sendRegistrationUri: "rabbitmq:///feedsome.plugin.registration?connectionFactory=#customConnectionFactory"
-      sendFeedNotificationUri: "rabbitmq:///feedsome.plugin.feed?connectionFactory=#customConnectionFactory"
+      sendRegistrationUri: "seda:plugin:register"
+      #"rabbitmq:///feedsome.plugin.registration?connectionFactory=#customConnectionFactory"
+      sendFeedNotificationUri: "seda:feed:send"
+      #"rabbitmq:///feedsome.plugin.feed?connectionFactory=#customConnectionFactory"
 
   connection:
     rabbitmq:
